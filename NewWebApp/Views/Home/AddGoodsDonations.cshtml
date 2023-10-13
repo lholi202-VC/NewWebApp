@@ -1,0 +1,70 @@
+﻿@model NewWebApp.Model.GoodsDonation
+
+@{
+    ViewData["Title"] = "AddGoodsDonations";
+}
+ 
+<h1>Add Goods Donations</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddGoodsDonations">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DonorName" class="control-label">Donor Name</label>
+                <input asp-for="DonorName" class="form-control" />
+                <span asp-validation-for="DonorName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DonationDate" class="control-label">Donation Date</label>
+                <input asp-for="DonationDate" class="form-control" />
+                <span asp-validation-for="DonationDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NumberOfItems" class="control-label">Number Of Items</label>
+                <input asp-for="NumberOfItems" class="form-control" />
+                <span asp-validation-for="NumberOfItems" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label">Description</label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoryName" class="control-label">Category Name</label>
+                <select asp-for="CategoryName" class="form-control">
+                    <option value="">Select a category</option> <!-- Empty option for default selection -->
+                    @foreach (var category in ViewBag.Categories)
+                    {
+                        <option value="@category.CategoryName">@category.CategoryName</option>
+                    }
+                </select>
+                <span asp-validation-for="CategoryName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="ADMIN_HOME">ADMIN_HOME</a>
+</div>
+
+
+<style>
+    body {
+        background: linear-gradient(135deg, mediumpurple, orange);
+    }
+
+</style>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

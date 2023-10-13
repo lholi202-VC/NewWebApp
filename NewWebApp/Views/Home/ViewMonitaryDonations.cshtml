@@ -1,0 +1,114 @@
+﻿@model IEnumerable<NewWebApp.Model.MonetaryDonation>
+
+@{
+    ViewData["Title"] = "View Monitary Donations";
+}
+
+<h1>View Monitary Donations</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DonationId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DonorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DonationDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DonationId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DonorName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DonationDate)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="ADMIN_HOME">ADMIN_HOME</a>
+</div>
+
+<div class="container">
+    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="AddCategory">Add Category</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</div>
+<div class="container">
+    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="MonetaryDonations">Add Monetary Donations</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</div>
+<div class="container">
+    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="AddDisaster">Add Disaster</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</div>
+<div class="container">
+    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="ViewDisaster">View Disasters</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</div>
+<div class="container">
+    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="ListCategories">View Categries</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</div>
+<div class="container">
+    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="AddGoodsDonations">Add Goods Donations</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</div>
+<div class="container">
+    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="ViewGoodsDonations">View Goods Donations</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</div>
+<style>
+    body {
+        background: linear-gradient(135deg, mediumpurple, orange);
+    }
+
+</style>

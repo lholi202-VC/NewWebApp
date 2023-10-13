@@ -1,0 +1,77 @@
+﻿@model IEnumerable<NewWebApp.Model.GoodsDonation>
+
+@{
+    ViewData["Title"] = "View Goods Donations";
+}
+
+<h1>View Goods Donations</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DonorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DonationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfItems)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryName)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DonorName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DonationDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberOfItems)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserDefinedCategory.CategoryName)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.DonationId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.DonationId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.DonationId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="ADMIN_HOME">ADMIN_HOME</a>
+</div>
+
+
+<style>
+    <style >
+    body {
+        background: linear-gradient(135deg, mediumpurple, orange);
+    }
+
+</style>
